@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 {% block start %}
-
-<!--fixed navbar-->
 <div class="">
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a href="#" class="navbar-brand"><img src="/media/images/logo_img.png" style="height:30px;" alt=""></a>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -29,8 +27,7 @@
 
 
 
-<!--Sidebar-->
-<div class="container-fluid mt-5 position-fixed">
+<div class="container-fluid position-fixed">
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
@@ -47,14 +44,7 @@
                     <li>
                         <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
-                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
-                            </li>
-                        </ul>
+                        
                     </li>
                     <li>
                         <a href="#" class="nav-link px-0 align-middle">
@@ -63,32 +53,12 @@
                     <li>
                         <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
                             <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
-                        <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
-                            </li>
-                        </ul>
+                        
                     </li>
                     <li>
                         <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
-                            </li>
-                        </ul>
+                            
                     </li>
                     <li>
                         <a href="#" class="nav-link px-0 align-middle">
@@ -101,101 +71,20 @@
     </div>
 </div>
 
-
-<!--containers-->
-        <div class="div_set_margin">
-            <div class="mt-10">
-                <h2 class="h2">Add Items to cart</h2>
-                <hr>
-            </div>
-
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">   
+<div class="div_set_margin">
+    <div class="header">
+        <h2>All Day Breakfast</h2>
         
-                        <img src="french-ratatouille.jpg" class="img-fluid" alt="French Ratatouille Hi-Pro Veg">
-                    </div>
-                    <div class="col-md-6">
-                        <h2>French Ratatouille Hi-Pro Veg</h2>
-                        <p class="text-muted">World Cuisine</p>
-                        <p class="h3">₹129 <span class="text-decoration-line-through">₹229</span> 44% OFF</p>
-                        <button class="btn btn-primary">ADD</button>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">   
-        
-                        <img src="french-ratatouille.jpg" class="img-fluid" alt="French Ratatouille Hi-Pro Veg">
-                    </div>
-                    <div class="col-md-6">
-                        <h2>French Ratatouille Hi-Pro Veg</h2>
-                        <p class="text-muted">World Cuisine</p>
-                        <p class="h3">₹129 <span class="text-decoration-line-through">₹229</span> 44% OFF</p>
-                        <button class="btn btn-primary">ADD</button>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">   
-        
-                        <img src="french-ratatouille.jpg" class="img-fluid" alt="French Ratatouille Hi-Pro Veg">
-                    </div>
-                    <div class="col-md-6">
-                        <h2>French Ratatouille Hi-Pro Veg</h2>
-                        <p class="text-muted">World Cuisine</p>
-                        <p class="h3">₹129 <span class="text-decoration-line-through">₹229</span> 44% OFF</p>
-                        <button class="btn btn-primary">ADD</button>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">   
-        
-                        <img src="french-ratatouille.jpg" class="img-fluid" alt="French Ratatouille Hi-Pro Veg">
-                    </div>
-                    <div class="col-md-6">
-                        <h2>French Ratatouille Hi-Pro Veg</h2>
-                        <p class="text-muted">World Cuisine</p>
-                        <p class="h3">₹129 <span class="text-decoration-line-through">₹229</span> 44% OFF</p>
-                        <button class="btn btn-primary">ADD</button>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">   
-        
-                        <img src="french-ratatouille.jpg" class="img-fluid" alt="French Ratatouille Hi-Pro Veg">
-                    </div>
-                    <div class="col-md-6">
-                        <h2>French Ratatouille Hi-Pro Veg</h2>
-                        <p class="text-muted">World Cuisine</p>
-                        <p class="h3">₹129 <span class="text-decoration-line-through">₹229</span> 44% OFF</p>
-                        <button class="btn btn-primary">ADD</button>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">   
-        
-                        <img src="french-ratatouille.jpg" class="img-fluid" alt="French Ratatouille Hi-Pro Veg">
-                    </div>
-                    <div class="col-md-6">
-                        <h2>French Ratatouille Hi-Pro Veg</h2>
-                        <p class="text-muted">World Cuisine</p>
-                        <p class="h3">₹129 <span class="text-decoration-line-through">₹229</span> 44% OFF</p>
-                        <button class="btn btn-primary">ADD</button>
-                    </div>
-                </div>
-            </div>
+    </div>
+    <hr>
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
-
-
+      </div>
+</div>
 
 {% endblock %}
