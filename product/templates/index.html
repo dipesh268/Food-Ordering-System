@@ -1,16 +1,29 @@
 {% extends "base.html" %}
 {% block start %}
-    <h1>
-        Hey👋, I'm Dipesh Mundhara
-    </h1>
-    <div class="border">
-    <blockquote class="blockquote">
-        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-      </blockquote>
-
-      <button class="btn btn-danger">Hello</button>
-    </div>
+<div class="">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand"><img src="images/1-removebg-preview.png" alt=""></a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+                
+                <form class="d-flex ">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <button type="button" class="btn btn-secondary"><i class="bi-search"></i></button>
+                    </div>
+                </form>
+               
+            </div>
+            <div class="navbar-nav">
+                <button type="button" class="btn btn-secondary"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                <a href="#" class="nav-item nav-link">Login</a>
+            </div>
+        </div>
+    </nav>
+</div>
 
 
 {% endblock %}
