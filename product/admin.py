@@ -4,7 +4,7 @@ from product.models import *
 
 
 class customerAdmin(admin.ModelAdmin):
-    list_display = ['customer_F_name','customer_L_name','customer_mobile_no','customer_address','customer_pincode','customer_email','customer_gender']
+    list_display = ['customer_F_name','customer_L_name','customer_mobile_no','customer_address','customer_pincode','customer_email','customer_gender','password']
 admin.site.register(customer,customerAdmin)
 class product_tAdmin(admin.ModelAdmin):
     list_display = ['product_type']

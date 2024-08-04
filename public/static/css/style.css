@@ -26,4 +26,7 @@
     height: 600px;
     width: 100%;
 }
-
+.regiter-sh{
+    border-radius: 15px;
+    box-shadow: 10px 10px 5px lightblue;
+}
