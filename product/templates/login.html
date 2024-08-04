@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block start %}
+<div class="container mt-5">
+<form class="col-6 mx-auto card p-3 shadow-lg" method="post">
+{% csrf_token %}
+    {% if messages %}
+                  <ul class="messages">
+                  {% for message in messages %}
+                <div class="alert alert-primary" role="alert">
+                  <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                </div>
+                {% endfor %}
+                  </ul>
+                  {% endif %}
+    <h2>Login</h2>
+      <hr>
+  <!-- Email input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <label class="form-label" for="form2Example1">Username</label>
+    <input type="text" id="form2Example1" name="username" class="form-control" />
+  </div>
+
+  <!-- Password input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <label class="form-label" for="form2Example2">Password</label>
+    <input type="password" id="form2Example2" name="password" class="form-control" />
+  </div>
+  <!-- Submit button -->
+  <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Sign in</button>
+
+  <!-- Register buttons -->
+  <div class="text-center">
+    <p>Not a member? <a href="/register/">Register</a></p>
+  </div>
+
+</form>
+</div>
+{% endblock %}
