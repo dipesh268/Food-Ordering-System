@@ -4,11 +4,21 @@ from django.contrib import messages
 from product.models import user
 from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.models import User
+from django.db.models import Q
 # Create your views here.
 
 
 def home(request):
     item_list = product_list.objects.all()
+    
+    if request.GET.get('search'):
+        item_list = item_list.filter(
+            Q(prodct_name__icontains = request.GET.get('search')) |
+            Q(prodct_type__icontains = request.GET.get('search')) |
+            Q(prodct_price__icontains = request.GET.get('search')) |
+            Q(product_Description__icontains = request.GET.get('search'))
+            )
+        
     return render(request, "index.html",context={'items':item_list})
 
 
