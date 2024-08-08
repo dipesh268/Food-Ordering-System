@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
 
 # Create your models here.
 
@@ -25,15 +26,17 @@ class product_list(models.Model):
 
 
 
-class customer(models.Model):
+class user(AbstractBaseUser):
     customer_F_name = models.CharField(max_length=100)
     customer_L_name = models.CharField(max_length=100)
     customer_mobile_no = models.IntegerField()
     customer_address = models.TextField()
     customer_pincode = models.IntegerField()
     customer_gender = models.CharField(max_length=10,default='Male')
-    customer_email = models.EmailField()
-    password = models.CharField(max_length=16,null=False,default=None)
+    customer_email = models.EmailField(unique=True)
+    
+    USERNAME_FIELD = 'customer_email'
+    REQUIRED_FIELDS = ['customer_F_name','customer_L_name','customer_mobile_no','customer_address','customer_pincode','customer_gender']
     
     
     def set_password(self, password):
@@ -42,7 +45,7 @@ class customer(models.Model):
         )
     
     def __str__(self) -> str:
-        return f'{self.customer_F_name}{self.customer_L_name}'
+        return self.customer_email
     
     class Meta:
         unique_together = ['customer_mobile_no','customer_email']

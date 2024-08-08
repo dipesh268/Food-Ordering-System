@@ -11,7 +11,7 @@
           </button>
           <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
               
-              <form class="d-flex ">
+              <form class="d-flex " method="get">
                   <div class="input-group">
                       <input type="text" class="form-control" placeholder="Search">
                       <button type="button" class="btn btn-secondary"><i class="bi-search"></i></button>
@@ -74,51 +74,44 @@
     <hr>
     <section id="south-indian">
         <div class="container">
-          <div class="small-header">
-              <h4>South Indian Food</h4>
-          </div>
           <div class="">
             <div class="container-fluid mb-4">
               <div class="row justify-content-center row-cols-sm-2 row-cols-md-3 row-cols-lg-10 row-cols-xl-10">
-                <div class="col mt-4">
-                  <div class="card card-container1">
-                    <img src="/media/images/Palak_Rajma_Oats_Lollipop_NonFried_1600.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <a href="#" class="btn btn-warning">Add To Cart</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col mt-4">
-                  <div class="card card-container1">
-                    <img src="/media/images/Palak_Rajma_Oats_Lollipop_NonFried_1600.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      
-                      <a href="#" class="btn btn-warning">Add To Cart</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col mt-4">
-                  <div class="card card-container1">
-                    <img src="/media/images/Palak_Rajma_Oats_Lollipop_NonFried_1600.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <a href="#" class="btn btn-warning">Add To Cart</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col mt-4">
-                  <div class="card card-container1">
-                    <img src="/media/images/Palak_Rajma_Oats_Lollipop_NonFried_1600.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <a href="#" class="btn btn-warning">Add To Cart</a>
-                    </div>
-                  </div>
-                </div>
-                
-                
+                {% for item in items %}
+                  {% if {{item.product_type}} == 'south Indian Food' %}
+                    {% if {{item.product_type}} == None %}
+                      <h4>Sorry!! No Items Available</h4>
+                    {% else %}
+                      <div class="small-header">
+                        <h4>South Indian Food</h4>
+                      </div>
+                      <div class="col mt-4">
+                        <div class="card card-container1">
+                          <img src="/media/{{item.product_image}}" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">{{item.prodct_name}}</h5>
+                            <a href="#" class="btn btn-warning">Add To Cart</a>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% elif {{item.product_type}} == '' %}
+                    {% if {{item.product_type}} == None %}
+                      <h4>Sorry!! No Items Available</h4>
+                    {% else %}
+                      <div class="small-header">
+                        <h4>Rajasthan Food</h4>
+                      </div>
+                      <div class="col mt-4">
+                        <div class="card card-container1">
+                          <img src="/media/{{item.product_image}}" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">{{item.prodct_name}}</h5>
+                            <a href="#" class="btn btn-warning">Add To Cart</a>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
               </div>
             </div>
           </div>
