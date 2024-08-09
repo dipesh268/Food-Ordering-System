@@ -17,9 +17,8 @@
     margin-top: 50px;
 }
 .card-container1{
-    width: 22rem;
-    background-color: #757575;
-    height: 50rem;
+    height: auto;
+    width: 300px;
     
 }
 .slider-img{
@@ -29,4 +28,10 @@
 .regiter-sh{
     border-radius: 15px;
     box-shadow: 10px 10px 5px lightblue;
+}
+.type_name{
+    text-align: center;
+}
+.size_box{
+    height:300px;
 }
