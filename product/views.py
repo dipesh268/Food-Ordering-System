@@ -14,7 +14,8 @@ def home(request):
     item2 = product_list.objects.filter(product_type__product_type ='south Indian Food')
     
     if request.GET.get('search'):
-        item_list = item_list.filter(
+        item_list=''
+        item_list = product_list.filter(
             Q(prodct_name__icontains = request.GET.get('search')) |
             Q(prodct_type__icontains = request.GET.get('search')) |
             Q(prodct_price__icontains = request.GET.get('search')) |
@@ -22,8 +23,13 @@ def home(request):
             )
         
         
-    return render(request, "index.html",context={'item1':item1,'item2':item2})
+    return render(request, "index.html",context={'item1':item1,'item2':item2,})
 
+
+def item_view_page(request,id):
+    items = product_list.objects.filter(id=id)
+    print(items)
+    return render(request,'item_view.html',context={'items':items})
 
 
 
@@ -56,7 +62,9 @@ def login_page(request):
         
     return render(request,'login.html')
 
-
+def logout_page(request):
+    logout(request)
+    return redirect('/login/')
 
 
 #Register code...
@@ -87,7 +95,5 @@ def register_page(request):
         #if register done then throw into login page
         return redirect('/login/')
     return render(request,'register.html')
-
-
 
     

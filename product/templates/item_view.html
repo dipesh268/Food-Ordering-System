@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block start %}
+
+<!--fixed navbar-->
+<div class="mb-20">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-warning">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand"><img src="/media/images/logo_img.png" style="height:30px;" alt=""></a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+                
+                <form class="d-flex " method="get">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <button type="button" class="btn btn-secondary"><i class="bi-search"></i></button>
+                    </div>
+                </form>
+               
+            </div>
+            <div class="navbar-nav">
+                <button type="button" class="btn btn-secondary me-4"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                <form class="form-inline">
+                  {% if request.user.is_authenticated %}
+                <a href="/logout/" class="btn btn-secondary my-2 me-3 my-sm-0" type="submit">Logout</a>
+                  {% else %}
+                  <a href="/login/" class="btn btn-secondary my-2 me-3 my-sm-0" type="submit">Login</a>
+                  {% endif %}
+              </form>
+            </div>
+        </div>
+    </nav>
+  </div>
+
+<section class="py-5">
+        <div class="row gx-8 section_set">
+            <aside class="col-lg-6">
+                <img src="/media/{{items.product_image}}" class="img_set" alt="...">
+            </aside>
+            <main class="col-lg-6">
+                <h1>{{item.prodct_name}}hiii</h1>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Price :<br></h4></td>
+                        <td><h5>{{item.product_price}}<span class="text-muted">/per item</span></h5></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Description :<br></h4></td>
+                        <td><h5>{{item.product_Description}}</h5></td>
+                    </tr>
+                </table>
+            </main>
+        </div>
+
+</section>
+
+
+{% endblock %}

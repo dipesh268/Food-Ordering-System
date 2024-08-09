@@ -35,3 +35,20 @@
 .size_box{
     height:300px;
 }
+.card-container1{
+    width: 300px;
+    height: 380px;
+    margin: 15px;
+    
+}
+.img_size{
+    height: 220px;
+    width:280px;
+}
+.view_item_cart{
+    margin-top: 30px;
+}
+.img_set{
+    height: 500;
+    width: 400px;
+}

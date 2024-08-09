@@ -20,8 +20,14 @@
              
           </div>
           <div class="navbar-nav">
-              <button type="button" class="btn btn-secondary"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
-              <a href="#" class="nav-item nav-link">Login</a>
+              <button type="button" class="btn btn-secondary me-4"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+              <form class="form-inline">
+                {% if request.user.is_authenticated %}
+              <a href="/logout/" class="btn btn-secondary my-2 me-3 my-sm-0" type="submit">Logout</a>
+                {% else %}
+                <a href="/login/" class="btn btn-secondary my-2 me-3 my-sm-0" type="submit">Login</a>
+                {% endif %}
+            </form>
           </div>
       </div>
   </nav>
@@ -72,59 +78,62 @@
         
     </div>
     <hr>
-    <section id="Rajasthan Food">
-        <div class="container">
-          <div class="">
-            <div class="small-header">
-              <h4 class="type_name">Rajasthan Food</h4>
-              <hr>
-            </div>
-            <div class="container-fluid mb-4">
-              {% for item in item1 %} 
-              <div class="row justify-content-center row-cols-sm-2 row-cols-md-3 row-cols-lg-10 row-cols-xl-10">
-                <div class="card card-container1">
-                  <div class="col mt-4">
-                    <img src="/media/{{item.product_image}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">{{item.prodct_name}}</h5>
-                      <h6 class="card-title">Price : {{item.product_price}}</h6>
-                      <a href="#" class="btn btn-warning">Add To Cart</a>
-                    </div>
-                  </div>
-                </div>
-              {% endfor %}
-              </div>
-            </div>
+
+    <section id="Rajasthan-Food">
+      <div class="container">
+        <div class="">
+          <div class="small-header">
+            <h4 class="type_name">Rajasthan Food</h4>
+            <hr>
           </div>
-        </div>
-    </section>
-    <section id="south-indian">
-        <div class="container">
-          <div class="">
-            <div class="small-header">
-              <h4 class="type_name">south Indian Food</h4>
-              <hr>
-            </div>
-            <div class="container-fluid mb-4">
-              {% for item in item2 %}
-              <div class="row justify-content-center row-cols-sm-2 row-cols-md-3 row-cols-lg-10 row-cols-xl-10">
-                <div class="card card-container1">
-                  <div class="col mt-4">
-                    <img src="/media/{{item.product_image}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">{{item.prodct_name}}</h5>
-                      <h6 class="card-title">Price : {{item.product_price}}</h6>
-                      <a href="#" class="btn btn-warning">Add To Cart</a>
-                    </div>
+          
+          <div class="container-fluid mb-4">
+            <div class="row justify-content-center row-cols-sm-2 row-cols-md-3 row-cols-lg-10 row-cols-xl-10">
+              {% for item in item1 %}
+              <div class="card card-container1">
+                <div class="col mt-4">
+                  <img src="/media/{{item.product_image}}" class="card-img-top img_size" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{item.prodct_name}}</h5>
+                    <h6 class="card-title">Price : {{item.product_price}}</h6>
+                    <a href="item-view/{{item.id}}/" class="btn btn-warning me-4" type="submit">View</a><a href="#" class="btn btn-warning" type="submit">Add To Cart</a>
                   </div>
                 </div>
-             
               </div>
               {% endfor %}
             </div>
           </div>
+      </div>
+  </section>
+
+  <section id="south-Indian-Food">
+    <div class="container">
+      <div class="">
+        <div class="small-header">
+          <h4 class="type_name">south Indian Food</h4>
+          <hr>
         </div>
-    </section>
+        
+        <div class="container-fluid mb-4">
+          <div class="row justify-content-center row-cols-sm-2 row-cols-md-3 row-cols-lg-10 row-cols-xl-10">
+            {% for item in item2 %}
+            <div class="card card-container1">
+              <div class="col mt-4">
+                <img src="/media/{{item.product_image}}" class="card-img-top img_size" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.prodct_name}}</h5>
+                  <h6 class="card-title">Price : {{item.product_price}}</h6>
+                  <a href="/item-view/{{item.id}}/" class="btn btn-warning me-4" type="submit">View</a><a href="#" class="btn btn-warning" type="submit">Add To Cart</a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+    </div>
+</section>
+
+   
 </div>
 
 {% endblock %}
