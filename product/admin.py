@@ -10,5 +10,5 @@ class product_tAdmin(admin.ModelAdmin):
     list_display = ['product_type']
 admin.site.register(product_t,product_tAdmin)
 class product_listAdmin(admin.ModelAdmin):
-    list_display = ['prodct_name','product_type','product_price','product_Description','product_image']
+    list_display = ['id','prodct_name','product_type','product_price','product_Description','product_image']
 admin.site.register(product_list,product_listAdmin)

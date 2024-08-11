@@ -15,7 +15,7 @@ def home(request):
     
     if request.GET.get('search'):
         item_list=''
-        item_list = product_list.filter(
+        item_list = product_list.objects.filter(
             Q(prodct_name__icontains = request.GET.get('search')) |
             Q(prodct_type__icontains = request.GET.get('search')) |
             Q(prodct_price__icontains = request.GET.get('search')) |
@@ -23,13 +23,13 @@ def home(request):
             )
         
         
-    return render(request, "index.html",context={'item1':item1,'item2':item2,})
+    return render(request, "index.html",context={'item1':item1,'item2':item2})
 
 
 def item_view_page(request,id):
-    items = product_list.objects.filter(id=id)
-    print(items)
-    return render(request,'item_view.html',context={'items':items})
+    queryset = product_list.objects.get(id=id)
+    print(queryset)
+    return render(request,'item_view.html',context={'recipe':queryset})
 
 
 

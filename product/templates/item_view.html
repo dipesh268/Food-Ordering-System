@@ -36,39 +36,31 @@
 <section class="py-5">
         <div class="row gx-8 section_set">
             <aside class="col-lg-6">
-                <img src="/media/{{items.product_image}}" class="img_set" alt="...">
+                <img src="/media/{{recipe.product_image}}" class="img_set" alt="...">
             </aside>
             <main class="col-lg-6">
-                <h1>{{item.prodct_name}}hiii</h1>
-                <table>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><h4>Price :<br></h4></td>
-                        <td><h5>{{item.product_price}}<span class="text-muted">/per item</span></h5></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><h4>Description :<br></h4></td>
-                        <td><h5>{{item.product_Description}}</h5></td>
-                    </tr>
-                </table>
+                <div class="container">
+                    <br>
+                <h1>{{recipe.prodct_name}}</h1>
+                <div>
+                    <br>
+                    <br>
+                    <h5>Price : {{recipe.product_price}}<span class="text-muted">/per item</span></h5>
+                </div>
+                <div>
+                    
+                    <br>
+                    <h3 style="text-align: center;">Description</h3>
+                    <hr>
+                    <p class="text_p">{{recipe.product_Description}}</p>
+                </div>
+                <div>
+                    <br><br><br>
+                    <a href="/" class="btn btn-warning" type="submit">Back</a><a href="#" class="btn btn-warning item_view_cart" type="submit">Add To Cart</a>
+                </div>
+                </div>
             </main>
         </div>
-
 </section>
 
 
