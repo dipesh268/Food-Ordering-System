@@ -27,7 +27,9 @@ urlpatterns = [
     path('login/',login_page,name='login_page'),
     path('logout/',logout_page,name="logout_page"),
     path('register/',register_page,name="register_page"),
-    path('item-view/<id>/',item_view_page,name='item_view_page')
+    path('cart/',cart_page,name='cart_page'),
+    path('item-view/<id>/',item_view_page,name='item_view_page'),
+    
 ]
 
 

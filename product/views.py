@@ -3,6 +3,7 @@ from product.models import *
 from django.contrib import messages
 from product.models import user
 from django.contrib.auth import authenticate, login,logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db.models import Q
 # Create your views here.
@@ -25,8 +26,9 @@ def home(request):
         
     return render(request, "index.html",context={'item1':item1,'item2':item2})
 
-
+#product contant details...
 def item_view_page(request,id):
+    #only one record get from DB that's why use GET
     queryset = product_list.objects.get(id=id)
     print(queryset)
     return render(request,'item_view.html',context={'recipe':queryset})
@@ -96,4 +98,6 @@ def register_page(request):
         return redirect('/login/')
     return render(request,'register.html')
 
-    
+@login_required(login_url="/login/")
+def cart_page(request):
+    return render(request, 'item_cart.html')

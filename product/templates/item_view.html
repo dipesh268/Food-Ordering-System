@@ -56,12 +56,54 @@
                 </div>
                 <div>
                     <br><br><br>
-                    <a href="/" class="btn btn-warning" type="submit">Back</a><a href="#" class="btn btn-warning item_view_cart" type="submit">Add To Cart</a>
+                    <a href="/" class="btn btn-warning" type="submit">Back</a>
+                    <a href="/" class="btn btn-warning buy_btn" type="submit" data-bs-toggle="modal" data-bs-target="#myModal">Buy Now</a>
+                        <a href="#" class="btn btn-warning item_view_cart" type="submit">Add To Cart</a>
+                    
                 </div>
                 </div>
             </main>
         </div>
 </section>
 
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Food Quantity</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+            <h5>{{recipe.prodct_name}}</h5>
+            <h5>Quantity:</h5>
+            <main class="cd__main">
+                <!-- Start DEMO HTML (Use the following code into your project)-->
+                <div class="input-group">
+                    <button id="decrement">-</button>
+                    <input type="number" id="input" value="1" readonly>
+                    <button id="increment">+</button>
+                </div>
+                <!-- END EDMO HTML (Happy Coding!)-->
+             </main>
+       
+            <h5>price: {{recipe.product_price}}<span class="text-muted">/per item</span></h5>
+            
+        
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
 
 {% endblock %}
