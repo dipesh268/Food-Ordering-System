@@ -33,7 +33,10 @@
     </nav>
   </div>
 
+  <form method="post">
+    {% csrf_token %}
 <section class="py-5">
+
         <div class="row gx-8 section_set">
             <aside class="col-lg-6">
                 <img src="/media/{{recipe.product_image}}" class="img_set" alt="...">
@@ -41,11 +44,11 @@
             <main class="col-lg-6">
                 <div class="container">
                     <br>
-                <h1>{{recipe.prodct_name}}</h1>
+                <input type="text" value="{{recipe.prodct_name}}" class="input_h1" name="p_name" readonly>
                 <div>
                     <br>
                     <br>
-                    <h5>Price : {{recipe.product_price}}<span class="text-muted">/per item</span></h5>
+                    <h5 name="p_price">Price : {{recipe.product_price}}<span class="text-muted">/per item</span></h5>
                 </div>
                 <div>
                     
@@ -54,11 +57,11 @@
                     <hr>
                     <p class="text_p">{{recipe.product_Description}}</p>
                 </div>
-                <div>
+                <div class="btns">
                     <br><br><br>
                     <a href="/" class="btn btn-warning" type="submit">Back</a>
-                    <a href="/" class="btn btn-warning buy_btn" type="submit" data-bs-toggle="modal" data-bs-target="#myModal">Buy Now</a>
-                        <a href="#" class="btn btn-warning item_view_cart" type="submit">Add To Cart</a>
+                    <a href="/" class="btn btn-warning buy_btn_buy" type="submit" data-bs-toggle="modal" data-bs-target="#myModal">Order Now</a>
+                    <a href="{% url 'add_to_cart' recipe.id %}" class="btn btn-warning item_view_cart" type="submit"> Add To Cart</a>
                     
                 </div>
                 </div>
@@ -68,6 +71,7 @@
 
 
 <!-- The Modal -->
+
 <div class="modal" id="myModal">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
@@ -80,30 +84,32 @@
   
         <!-- Modal body -->
         <div class="modal-body">
-            <h5>{{recipe.prodct_name}}</h5>
+            <h5 name="p_name">{{recipe.prodct_name}}</h5>
             <h5>Quantity:</h5>
             <main class="cd__main">
                 <!-- Start DEMO HTML (Use the following code into your project)-->
                 <div class="input-group">
                     <button id="decrement">-</button>
-                    <input type="number" id="input" value="1" readonly>
+                    <input type="number" id="input" value="1" name="quantity">
                     <button id="increment">+</button>
                 </div>
                 <!-- END EDMO HTML (Happy Coding!)-->
              </main>
-       
-            <h5>price: {{recipe.product_price}}<span class="text-muted">/per item</span></h5>
+             
+            <h5 name="p_price">price: {{recipe.product_price}}</h5>
             
         
         </div>
   
         <!-- Modal footer -->
         <div class="modal-footer">
+            <a href="#" class="btn btn-success" type="submit">Order Now</a>
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
         </div>
   
       </div>
     </div>
+</form>
   </div>
 
 {% endblock %}

@@ -1,11 +1,12 @@
 from django.shortcuts import render,redirect
 from product.models import *
 from django.contrib import messages
-from product.models import user
+from product.models import *
 from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db.models import Q
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 #for Home page logic...
@@ -30,7 +31,6 @@ def home(request):
 def item_view_page(request,id):
     #only one record get from DB that's why use GET
     queryset = product_list.objects.get(id=id)
-    print(queryset)
     return render(request,'item_view.html',context={'recipe':queryset})
 
 
@@ -45,13 +45,14 @@ def login_page(request):
         #print(pwd) check the password is get from form
         
         #check the email is valid or not 
-        if user.objects.filter(customer_email=customer_email).exists():
+        if customer.objects.filter(customer_email=customer_email).exists():
             #check the password is valid or not 
-            user1 = authenticate(customer_email=customer_email,password=pwd)
+            user = authenticate(customer_email=customer_email,password=pwd)
             #print(user1) is for check the code is run or not
+            print(user)
             if user:
                 #if user is valid than login in main page
-                login(request,user1)
+                login(request,user)
                 return redirect('/')
             else:
                 #if passowrd is wrong than through the message
@@ -84,7 +85,7 @@ def register_page(request):
         address=data.get('addr')
         pincode=data.get('pincode')
         #save in the db table model.
-        user.objects.create(
+        customer.objects.create(
             customer_F_name  = frist_name,
             customer_L_name = last_name,
             customer_mobile_no = phno,
@@ -99,5 +100,24 @@ def register_page(request):
     return render(request,'register.html')
 
 @login_required(login_url="/login/")
-def cart_page(request):
-    return render(request, 'item_cart.html')
+def add_to_cart(request,id):
+    product = product_list.objects.get(id=id)
+    user = request.user
+    cart , _ = Cart.objects.get_or_create(user=user,is_paid = False)
+
+    CartItem = CartItems.objects.create(cart = cart,product = product)
+    return redirect(request.META.get('HTTP_REFERER'))
+    # if request.method == "POST":
+    #     data = request.POST
+    #     product_name = data.get('p_name')
+    #     print(product_name)
+    #     queryset = product_list.objects.get(prodct_name = product_name)
+    #     print(queryset)
+    #     return product_name
+    # item = product_list.objects.get(id=id)
+    # user = request.user
+    # carts = cart.objects.create(
+    #     user = user,
+    #     prodct_name = item.prodct_name,
+        
+    # )
